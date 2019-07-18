@@ -1,6 +1,6 @@
 # 编辑器部分
 .idea/
-.iml
+*.iml
 out/
 
 # Compiled class file
