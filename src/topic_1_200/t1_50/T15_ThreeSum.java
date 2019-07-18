@@ -65,9 +65,6 @@ public class T15_ThreeSum {
     public static void main(String[] args) {
         T15_ThreeSum t15_threeSum = new T15_ThreeSum();
         int[] data = {-2, 0, 0, 2, 2};
-        t15_threeSum.threeSum(data).forEach(list -> {
-            list.forEach(System.out::print);
-            System.out.println();
-        });
+        t15_threeSum.threeSum(data).forEach(list -> list.forEach(System.out::print));
     }
 }

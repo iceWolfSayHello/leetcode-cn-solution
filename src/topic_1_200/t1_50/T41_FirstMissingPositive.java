@@ -41,6 +41,7 @@ public class T41_FirstMissingPositive {
     }
 
     public static void main(String[] args) {
+
         int[] nums = {7, 8, 9, 11, 12};
         T41_FirstMissingPositive firstMissingPositive = new T41_FirstMissingPositive();
         System.out.println(firstMissingPositive.firstMissingPositive(nums));
