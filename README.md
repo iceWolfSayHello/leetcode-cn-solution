@@ -28,7 +28,7 @@ src.topic_x_x|x对应力扣（中文版）的题目序号，包内皆为题解
  * ]
  *
  * @author ：wy.
- * @date ：Created in 10:30 2019/6/25
+ * @date ：Created at hour:minute Year/Month/Day
  */ 
  ```
 解题方法名与题目中保持一致。
