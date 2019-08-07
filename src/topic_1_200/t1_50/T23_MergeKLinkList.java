@@ -14,7 +14,7 @@ package topic_1_200.t1_50;
  * 输出: 1->1->2->3->4->4->5->6
  *
  * @author ：wy.
- * @date ：Created in 12:14 2019/6/26
+ * @date ：Created at 12:14 2019/6/26
  */
 public class T23_MergeKLinkList {
 
