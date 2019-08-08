@@ -22,49 +22,48 @@ import java.util.Stack;
  * <p>
  */
 public class T20_ValidBrackets {
-    private boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        char[] content = s.toCharArray();
-        for (int i = 0; i < content.length; i++) {
-            char ch = content[i];
-            if (ch=='('||ch=='{'||ch=='['){
-                stack.push(Character.valueOf(ch));
-            }else if (ch==')'){
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                char top = stack.pop();
-                if (top != '('){
-                    return false;
-                }
-            }else if (ch=='}'){
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                char top = stack.pop();
-                if (top != '{'){
-                    return false;
-                }
-            }else if (ch==']'){
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                char top = stack.pop();
-                if (top != '['){
-                    return false;
-                }
-            }
-        }
-        if (stack.empty()){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+	private boolean isValid(String s) {
+		Stack<Character> stack = new Stack<>();
+		char[] content = s.toCharArray();
+		for (int i = 0; i < content.length; i++) {
+			char ch = content[i];
+			if (ch == '(' || ch == '{' || ch == '[') {
+				stack.push(Character.valueOf(ch));
+			} else if (ch == ')') {
+				if (stack.isEmpty()) {
+					return false;
+				}
+				char top = stack.pop();
+				if (top != '(') {
+					return false;
+				}
+			} else if (ch == '}') {
+				if (stack.isEmpty()) {
+					return false;
+				}
+				char top = stack.pop();
+				if (top != '{') {
+					return false;
+				}
+			} else if (ch == ']') {
+				if (stack.isEmpty()) {
+					return false;
+				}
+				char top = stack.pop();
+				if (top != '[') {
+					return false;
+				}
+			}
+		}
+		if (stack.empty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-    public static void main(String[] args) {
-        T20_ValidBrackets validBrackets = new T20_ValidBrackets();
-        System.out.println(validBrackets.isValid("([)]"));
-    }
+	public static void main(String[] args) {
+		T20_ValidBrackets validBrackets = new T20_ValidBrackets();
+		System.out.println(validBrackets.isValid("([)]"));
+	}
 }

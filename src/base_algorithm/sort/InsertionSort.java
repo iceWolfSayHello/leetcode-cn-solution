@@ -9,30 +9,30 @@ import static base_algorithm.sort.SortedUtil.testSorted;
  * 是否为稳定排序算法： 是
  *
  * @author ：wy.
- * @date ：Created in 下午3:07 19-7-17
+ * @date ：Created at 下午3:07 19-7-17
  */
 public class InsertionSort {
 
-    /**
-     * 将数组中分为已排序区间和未排序区间,取未排序区间中的元素，
-     * 在已排序区间中找到合适的插入位置将其插入，并保证已排序区间数据一直有序。
-     */
-    private void sorted(int[] nums){
-        for (int i = 1 ; i < nums.length; i++) {
-            int value = nums[i];
-            for (int j = i; j > 0; j--) {
-                if (value < nums[j-1]){
-                    nums[j] = nums[j-1];
-                }else {
-                    nums[j] = value;
-                    break;
-                }
-            }
-        }
-    }
+	/**
+	 * 将数组中分为已排序区间和未排序区间,取未排序区间中的元素，
+	 * 在已排序区间中找到合适的插入位置将其插入，并保证已排序区间数据一直有序。
+	 */
+	private void sorted(int[] nums) {
+		for (int i = 1; i < nums.length; i++) {
+			int value = nums[i];
+			for (int j = i; j > 0; j--) {
+				if (value < nums[j - 1]) {
+					nums[j] = nums[j - 1];
+				} else {
+					nums[j] = value;
+					break;
+				}
+			}
+		}
+	}
 
-    public static void main(String[] args) {
-        InsertionSort insertionSort = new InsertionSort();
-        testSorted(insertionSort::sorted);
-    }
+	public static void main(String[] args) {
+		InsertionSort insertionSort = new InsertionSort();
+		testSorted(insertionSort::sorted);
+	}
 }

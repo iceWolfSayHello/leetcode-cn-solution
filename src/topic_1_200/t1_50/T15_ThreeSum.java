@@ -23,48 +23,48 @@ import java.util.List;
  */
 public class T15_ThreeSum {
 
-    /**
-     * 先进行排序，排序后采用双层循环、对撞指针进行遍历，
-     * 若最大的三个数相加已经小于0则退出循环
-     */
-    private List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        if (nums.length < 3) {
-            return result;
-        }
-        Arrays.sort(nums);
-        for (int i = nums.length - 1; i > 1; i--) {
-            if (nums[i] + nums[i - 1] + nums[i - 2] < 0) {
-                break;
-            }
-            int m = 0 - nums[i];
-            for (int j = i - 1, k = 0;
-                 j > k; ) {
-                int sum = nums[j] + nums[k];
-                if (sum == m) {
-                    result.add(Arrays.asList(nums[i], nums[j--], nums[k++]));
-                    while (j > k && nums[j] == nums[j + 1]) {
-                        j--;
-                    }
-                    while (j > k && nums[k] == nums[k - 1]) {
-                        k++;
-                    }
-                } else if (sum > m) {
-                    j--;
-                } else {
-                    k++;
-                }
-            }
-            while (i > 1 && nums[i] == nums[i - 1]) {
-                i--;
-            }
-        }
-        return result;
-    }
+	/**
+	 * 先进行排序，排序后采用双层循环、对撞指针进行遍历，
+	 * 若最大的三个数相加已经小于0则退出循环
+	 */
+	private List<List<Integer>> threeSum(int[] nums) {
+		List<List<Integer>> result = new ArrayList<>();
+		if (nums.length < 3) {
+			return result;
+		}
+		Arrays.sort(nums);
+		for (int i = nums.length - 1; i > 1; i--) {
+			if (nums[i] + nums[i - 1] + nums[i - 2] < 0) {
+				break;
+			}
+			int m = 0 - nums[i];
+			for (int j = i - 1, k = 0;
+				 j > k; ) {
+				int sum = nums[j] + nums[k];
+				if (sum == m) {
+					result.add(Arrays.asList(nums[i], nums[j--], nums[k++]));
+					while (j > k && nums[j] == nums[j + 1]) {
+						j--;
+					}
+					while (j > k && nums[k] == nums[k - 1]) {
+						k++;
+					}
+				} else if (sum > m) {
+					j--;
+				} else {
+					k++;
+				}
+			}
+			while (i > 1 && nums[i] == nums[i - 1]) {
+				i--;
+			}
+		}
+		return result;
+	}
 
-    public static void main(String[] args) {
-        T15_ThreeSum t15_threeSum = new T15_ThreeSum();
-        int[] data = {-2, 0, 0, 2, 2};
-        t15_threeSum.threeSum(data).forEach(list -> list.forEach(System.out::print));
-    }
+	public static void main(String[] args) {
+		T15_ThreeSum t15_threeSum = new T15_ThreeSum();
+		int[] data = {-2, 0, 0, 2, 2};
+		t15_threeSum.threeSum(data).forEach(list -> list.forEach(System.out::print));
+	}
 }

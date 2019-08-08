@@ -25,51 +25,51 @@ package topic_1_200.t1_50;
  */
 public class T8_Atoi {
 
-    private int myAtoi(String str) {
-        if (str == null || str.isEmpty()) {
-            return 0;
-        }
-        //返回结果
-        long ret = 0;
-        //数字正负号
-        int sign = 1;
-        //删除前后空格并获得中间的字符串
-        char[] content = str.trim().toCharArray();
-        if (content.length == 0){
-            return 0;
-        }
-        int index = 0;
-        //判断首字母
-        if (content[index] == '+') {
-            index++;
-        } else if (content[index] == '-') {
-            sign = -1;
-            index++;
-        } else if (!isNumber(content[index])) {
-            return 0;
-        }
-        for (; index < content.length; index++) {
-            if (isNumber(content[index])) {
-                int current = content[index] - '0';
-                ret = ret * 10 + current;
-                if (sign * ret > Integer.MAX_VALUE) {
-                    return Integer.MAX_VALUE;
-                } else if (sign * ret < Integer.MIN_VALUE) {
-                    return Integer.MIN_VALUE;
-                }
-            } else {
-                break;
-            }
-        }
-        return (int) ret * sign;
-    }
+	private int myAtoi(String str) {
+		if (str == null || str.isEmpty()) {
+			return 0;
+		}
+		//返回结果
+		long ret = 0;
+		//数字正负号
+		int sign = 1;
+		//删除前后空格并获得中间的字符串
+		char[] content = str.trim().toCharArray();
+		if (content.length == 0) {
+			return 0;
+		}
+		int index = 0;
+		//判断首字母
+		if (content[index] == '+') {
+			index++;
+		} else if (content[index] == '-') {
+			sign = -1;
+			index++;
+		} else if (!isNumber(content[index])) {
+			return 0;
+		}
+		for (; index < content.length; index++) {
+			if (isNumber(content[index])) {
+				int current = content[index] - '0';
+				ret = ret * 10 + current;
+				if (sign * ret > Integer.MAX_VALUE) {
+					return Integer.MAX_VALUE;
+				} else if (sign * ret < Integer.MIN_VALUE) {
+					return Integer.MIN_VALUE;
+				}
+			} else {
+				break;
+			}
+		}
+		return (int) ret * sign;
+	}
 
-    private boolean isNumber(char n) {
-        return n >= '0' && n <= '9';
-    }
+	private boolean isNumber(char n) {
+		return n >= '0' && n <= '9';
+	}
 
-    public static void main(String[] args) {
-        T8_Atoi atoi = new T8_Atoi();
-        System.out.println(atoi.myAtoi(" +0 123"));
-    }
+	public static void main(String[] args) {
+		T8_Atoi atoi = new T8_Atoi();
+		System.out.println(atoi.myAtoi(" +0 123"));
+	}
 }

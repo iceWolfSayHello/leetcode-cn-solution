@@ -19,40 +19,40 @@ import java.util.Map;
  * 输出: 2
  *
  * @author ：wy.
- * @date ：Created in 10:53 2019/6/26
+ * @date ：Created at 10:53 2019/6/26
  */
 public class T169_MajorityElement {
-    public int majorityElementWithHash(int[] nums) {
-        HashMap<Integer, Integer> content = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (content.containsKey(nums[i])) {
-                content.put(nums[i], content.get(nums[i]) + 1);
-            } else {
-                content.put(nums[i], 1);
-            }
-        }
-        return content.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get().getKey();
-    }
+	public int majorityElementWithHash(int[] nums) {
+		HashMap<Integer, Integer> content = new HashMap<>();
+		for (int i = 0; i < nums.length; i++) {
+			if (content.containsKey(nums[i])) {
+				content.put(nums[i], content.get(nums[i]) + 1);
+			} else {
+				content.put(nums[i], 1);
+			}
+		}
+		return content.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get().getKey();
+	}
 
-    private int majorityElementWithVote(int[] nums) {
-        int count = 0;
-        int majority = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (count == 0) {
-                majority = nums[i];
-            }
-            if (majority == nums[i]) {
-                count++;
-            } else {
-                count--;
-            }
-        }
-        return majority;
-    }
+	private int majorityElementWithVote(int[] nums) {
+		int count = 0;
+		int majority = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (count == 0) {
+				majority = nums[i];
+			}
+			if (majority == nums[i]) {
+				count++;
+			} else {
+				count--;
+			}
+		}
+		return majority;
+	}
 
-    public static void main(String[] args) {
-        int[] nums = {2, 2, 2, 1, 1, 3};
-        T169_MajorityElement majorityElement = new T169_MajorityElement();
-        System.out.println(majorityElement.majorityElementWithVote(nums));
-    }
+	public static void main(String[] args) {
+		int[] nums = {2, 2, 2, 1, 1, 3};
+		T169_MajorityElement majorityElement = new T169_MajorityElement();
+		System.out.println(majorityElement.majorityElementWithVote(nums));
+	}
 }
