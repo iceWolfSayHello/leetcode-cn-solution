@@ -34,6 +34,11 @@ public class T112_PathSum {
 		if (node.left == null && node.right == null && currentSum + node.val == finalSum) {
 			return true;
 		}
+
+
+
+
+
 		return pathSum(node.left, currentSum + node.val, finalSum)
 				|| pathSum(node.right, currentSum + node.val, finalSum);
 	}
